@@ -4,6 +4,7 @@
 #include <chrono>
 #include <thread>
 #include <opencv2/opencv.hpp>
+
 #define RESOURCE_DIR "../resource/"
 
 void videoIO_example()
@@ -41,7 +42,7 @@ void videoIO_example()
     std::cout << "mode:" << mode << std::endl;
 
 
-    cv::VideoWriter writer("invertTest.avi", CV_FOURCC('M','P','E','G'), fps, cv::Size(w, h));
+    cv::VideoWriter writer("invertTest.avi", cv::VideoWriter::fourcc('M','P','E','G'), fps, cv::Size(w, h));
     if(!writer.isOpened())
     {
         std::cout << "writer open fail" << std::endl;
@@ -71,7 +72,7 @@ void videoIO_example()
 
 
 
-    cv::namedWindow("video", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("video", cv::WINDOW_AUTOSIZE);
     cv::VideoCapture reader("invertTest.avi");
     if(!reader.isOpened())
     {

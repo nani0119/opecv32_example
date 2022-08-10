@@ -13,7 +13,7 @@ int main( int argc, char* argv[] )
     cv::Size size((int)capture.get( cv::CAP_PROP_FRAME_WIDTH ),(int)capture.get( cv::CAP_PROP_FRAME_HEIGHT ));
 
     cv::VideoWriter writer;
-    writer.open( argv[2], CV_FOURCC('M','J','P','G'), fps, size );
+    writer.open( argv[2], cv::VideoWriter::fourcc('M','J','P','G'), fps, size );
     cv::Mat logpolar_frame, bgr_frame;
 
     for(;;)

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <opencv2/opencv.hpp>
+
 #define RESOURCE_DIR "../resource/"
 
 void abs_example()
@@ -234,7 +235,7 @@ void dft_example()
     magImg = magImg(cv::Rect(0, 0, magImg.cols&-2, magImg.rows&-2));
 
     // 归一化
-    cv::normalize(magImg, magImg, 0, 1, CV_MINMAX);
+    cv::normalize(magImg, magImg, 0, 1, cv::NORM_MINMAX);
 
     //重新排列傅里叶图像中的象限，使得原点位于图像中心
     int cx = magImg.cols / 2;
@@ -265,9 +266,9 @@ void dft_example()
     cv::Mat invDftImg;
     //cv::dft(complexImg, invDftImg, cv::DFT_INVERSE|cv::DFT_REAL_OUTPUT);
     cv::idft(complexImg, invDftImg, cv::DFT_REAL_OUTPUT);
-    cv::normalize(invDftImg, invDftImg, 0, 1, CV_MINMAX);
+    cv::normalize(invDftImg, invDftImg, 0, 1, cv::NORM_MINMAX);
 
-    cv::namedWindow("inv-img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("inv-img", cv::WINDOW_AUTOSIZE);
     cv::imshow("inv-img", invDftImg);
 
     cv::waitKey(0);
@@ -338,25 +339,25 @@ void flip_example()
 {
     std::cout << std::endl << __func__ << ":" <<std::endl;
     cv::Mat img = cv::imread(RESOURCE_DIR"/5/campus.jpg");
-    cv::namedWindow("origin", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("origin", cv::WINDOW_AUTOSIZE);
     cv::imshow("origin", img);
 
     // x-aix flip
     cv::Mat xFlipImg;
     cv::flip(img, xFlipImg, 0);
-    cv::namedWindow("x-aix", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("x-aix", cv::WINDOW_AUTOSIZE);
     cv::imshow("x-aix", xFlipImg);
 
     // y-aix flip
     cv::Mat yFlipImg;
     cv::flip(img, yFlipImg, 1);
-    cv::namedWindow("y-aix", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("y-aix", cv::WINDOW_AUTOSIZE);
     cv::imshow("y-aix", yFlipImg);
 
     // xy-aix flip
     cv::Mat xyFlipImg;
     cv::flip(img, xyFlipImg, -1);
-    cv::namedWindow("xy-aix", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("xy-aix", cv::WINDOW_AUTOSIZE);
     cv::imshow("xy-aix", xyFlipImg);
 
     cv::waitKey(0);
@@ -436,13 +437,13 @@ void log_example()
 
     cv::Mat src;
     img.convertTo(src, CV_32F, 1.0F/255.0F, 0);
-    cv::namedWindow("src", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("src", cv::WINDOW_AUTOSIZE);
     cv::imshow("src", src);
 
     cv::Mat ret;
     src += cv::Scalar::all(1);
     cv::log(src, ret);
-    cv::namedWindow("log", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("log", cv::WINDOW_AUTOSIZE);
     cv::imshow("log", ret);
 
     cv::waitKey(0);
@@ -465,7 +466,7 @@ void LUT_example()
 
     cv::Mat img;
     cv::LUT(index, table, img);
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
     cv::waitKey(0);
     cv::destroyAllWindows();
@@ -550,9 +551,9 @@ void split_merge_example()
     cv::Mat channels[3] = {cv::Mat(), cv::Mat(), cv::Mat()};
     cv::split(img, channels);
 
-    cv::namedWindow("B", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("G", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("R", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("B", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("G", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("R", cv::WINDOW_AUTOSIZE);
     cv::imshow("B", channels[0]);
     cv::imshow("G", channels[1]);
     cv::imshow("R", channels[2]);
@@ -560,7 +561,7 @@ void split_merge_example()
     cv::Mat dst;
     cv::merge(channels, 3, dst);
 
-    cv::namedWindow("merge", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("merge", cv::WINDOW_AUTOSIZE);
     cv::imshow("merge", dst);
 
     cv::waitKey(0);
@@ -641,8 +642,8 @@ void mixChannels_example()
 
     cv::mixChannels(srcv, nsrc, dstv, ndst, fromTo, nPairs);
 
-    cv::namedWindow("inv", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("R", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("inv", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("R", cv::WINDOW_AUTOSIZE);
     cv::imshow("inv", dstv[0]);
     cv::imshow("R", dstv[1]);
 
@@ -782,8 +783,8 @@ void perspectiveTransform_example()
 		}
 	}
 
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("prj", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("prj", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
     cv::imshow("prj", img_trans);
 
@@ -1031,8 +1032,8 @@ void split_example()
     cv::Mat dst_img;
     cv::merge(dst, dst_img);
 
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("sort-img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("sort-img", cv::WINDOW_AUTOSIZE);
 
     cv::imshow("img", img);
     cv::imshow("sort-img", dst_img);
@@ -1105,8 +1106,8 @@ void transform_example()
     cv::normalize(dst, dst, 0, 1, cv::NORM_MINMAX);
 
 
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("add3c", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("add3c", cv::WINDOW_AUTOSIZE);
 
     cv::imshow("img", img);
     cv::imshow("add3c", dst);

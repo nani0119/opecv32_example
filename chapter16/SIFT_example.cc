@@ -8,7 +8,8 @@ using namespace std;
 
 
 void extracte_sift(cv::Mat input,std::vector<cv::KeyPoint> &keypoint,cv::Mat &descriptor, string tag){
-    cv::Ptr<cv::Feature2D> f2d = cv::xfeatures2d::SIFT::create();
+    //cv::Ptr<cv::Feature2D> f2d = cv::xfeatures2d::SIFT::create();
+    cv::Ptr<cv::Feature2D> f2d = cv::SIFT::create();
     f2d->detect(input,keypoint);
     cv::Mat image_with_kp;
     f2d->compute(input,keypoint,descriptor);

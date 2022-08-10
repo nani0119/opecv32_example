@@ -1,7 +1,9 @@
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <opencv2/opencv.hpp>
+
 #define RESOURCE_DIR "../resource/"
 
 void imgCodec_example()
@@ -31,7 +33,7 @@ void imgCodec_example()
 
     cv::Mat dataDecode =  cv::imdecode(data, cv::IMREAD_COLOR);
 
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", dataDecode);
 
     cv::waitKey(0);

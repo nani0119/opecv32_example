@@ -58,7 +58,7 @@ void compareHist_example()
     cv::cvtColor(img2, img2, cv::COLOR_BGR2HSV);
     cv::cvtColor(img3, img3, cv::COLOR_BGR2HSV);
 
-    cv::namedWindow("img1", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img1", cv::WINDOW_AUTOSIZE);
     cv::imshow("img1", img1);
     cv::imshow("img2", img2);
     cv::imshow("img3", img3);

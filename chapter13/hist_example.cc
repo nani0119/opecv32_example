@@ -108,16 +108,16 @@ void hist_example()
     }
 #if 1
         // Display
-        cv::namedWindow( "Source0", CV_WINDOW_AUTOSIZE );cv::imshow( "Source0", src[0] );
-        cv::namedWindow( "HS Histogram0", CV_WINDOW_AUTOSIZE );cv::imshow( "HS-Histogram0", hist_img[0] );
-        cv::namedWindow( "Source1", CV_WINDOW_AUTOSIZE );cv::imshow( "Source1", src[1] );
-        cv::namedWindow( "HS Histogram1", CV_WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram1", hist_img[1] );
-        cv::namedWindow( "Source2", CV_WINDOW_AUTOSIZE ); cv::imshow( "Source2", src[2] );
-        cv::namedWindow( "HS Histogram2", CV_WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram2", hist_img[2] );
-        cv::namedWindow( "Source3", CV_WINDOW_AUTOSIZE ); cv::imshow( "Source3", src[3] );
-        cv::namedWindow( "HS Histogram3", CV_WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram3", hist_img[3] );
-        cv::namedWindow( "Source4", CV_WINDOW_AUTOSIZE ); cv::imshow( "Source4", src[4] );
-        cv::namedWindow( "HS Histogram4", CV_WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram4", hist_img[4] );
+        cv::namedWindow( "Source0", cv::WINDOW_AUTOSIZE );cv::imshow( "Source0", src[0] );
+        cv::namedWindow( "HS Histogram0", cv::WINDOW_AUTOSIZE );cv::imshow( "HS-Histogram0", hist_img[0] );
+        cv::namedWindow( "Source1", cv::WINDOW_AUTOSIZE );cv::imshow( "Source1", src[1] );
+        cv::namedWindow( "HS Histogram1", cv::WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram1", hist_img[1] );
+        cv::namedWindow( "Source2", cv::WINDOW_AUTOSIZE ); cv::imshow( "Source2", src[2] );
+        cv::namedWindow( "HS Histogram2", cv::WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram2", hist_img[2] );
+        cv::namedWindow( "Source3", cv::WINDOW_AUTOSIZE ); cv::imshow( "Source3", src[3] );
+        cv::namedWindow( "HS Histogram3", cv::WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram3", hist_img[3] );
+        cv::namedWindow( "Source4", cv::WINDOW_AUTOSIZE ); cv::imshow( "Source4", src[4] );
+        cv::namedWindow( "HS Histogram4", cv::WINDOW_AUTOSIZE ); cv::imshow( "HS-Histogram4", hist_img[4] );
 
 #endif
 

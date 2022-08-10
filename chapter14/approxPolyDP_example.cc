@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <opencv2/opencv.hpp>
-
 #define RESOURCE_DIR "../resource/"
 
 std::ostream& operator <<(std::ostream& output, cv::Moments moment)
@@ -225,7 +224,7 @@ void moments_example()
     }
 
 
-    std::cout << "match shape:" <<cv::matchShapes(contours1[0], contours2[0], CV_CONTOURS_MATCH_I1, 0) << std::endl;
+    std::cout << "match shape:" <<cv::matchShapes(contours1[0], contours2[0], cv::CONTOURS_MATCH_I1, 0) << std::endl;
 
     cv::waitKey(0);
     cv::destroyAllWindows();

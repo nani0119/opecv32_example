@@ -6,6 +6,7 @@
 #include "opencv2/optflow.hpp"
 #include "opencv2/highgui.hpp"
 
+
 #define RESOURCE_DIR "../resource/"
 
 using namespace std;
@@ -55,8 +56,8 @@ int main(int argc, char *argv[])
 
 
     Mat cflow = pre; Mat cflow2 = aft;// store the  3-channel mat of frame, cflow is for show color with line
-    cvtColor(pre, pre, CV_BGR2GRAY);
-    cvtColor(aft, aft, CV_BGR2GRAY);
+    cvtColor(pre, pre, cv::COLOR_BGR2GRAY);
+    cvtColor(aft, aft, cv::COLOR_BGR2GRAY);
 
     //below parameter of calcOpticalFlowPyrLK
     vector<Point2f> prePts;
@@ -64,7 +65,7 @@ int main(int argc, char *argv[])
     vector<Point2f> nextPts(pre.rows * pre.cols);
     vector<uchar> status;
     vector<float> err;
-    TermCriteria termcrit(CV_TERMCRIT_ITER | CV_TERMCRIT_EPS, 20, 0.03);
+    TermCriteria termcrit(cv::TermCriteria::COUNT | cv::TermCriteria::EPS, 20, 0.03);
     cv::Ptr<cv::DenseOpticalFlow> dualTVL1 = createOptFlow_DualTVL1();
 
     switch (choice)

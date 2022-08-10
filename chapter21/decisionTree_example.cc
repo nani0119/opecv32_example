@@ -136,7 +136,8 @@ int main(int argc, char *argv[]) {
   dtree->clear();
 
   // To load a trained classifier from disk:
-  dtree->load<cv::ml::RTrees>("decisionTree.xml");
+  //dtree->load<cv::ml::RTrees>("decisionTree.xml");
+  dtree->load("decisionTree.xml");
 
  //cout <<  data_set->getSamples();
   //cv::Mat mushroom_sample = (cv::Mat_<float>(1, 23) << 1, 8, 13, 4, 6, 18, 14, 7, 15, 10, 9, 7, 8, 13, 7, 7, 1, 10, 4, 4, 10, 7, 20);

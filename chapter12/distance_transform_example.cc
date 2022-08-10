@@ -20,7 +20,7 @@ void distance_transform_example()
 
     cv::imshow("imgblur", imgBlur);
 
-    cv::threshold(imgBlur,imgBlur,20,200,CV_THRESH_BINARY);
+    cv::threshold(imgBlur,imgBlur,20,200,cv::THRESH_BINARY);
 
     cv::Mat imgDistance;
     cv::distanceTransform(imgBlur, imgDistance, cv::DIST_L1, 3);

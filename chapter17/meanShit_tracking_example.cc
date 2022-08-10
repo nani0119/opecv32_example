@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 
+
 #define RESOURCE_DIR "../resource/"
 //#define  DIST 0.5
 #define  NUM 20
@@ -83,7 +84,7 @@ void init_target(double *hist1, double *m_wei,  cv::Mat& current)
 		}
 	}
 	//画直方图
-	CvPoint p1,p2;
+	cv::Point p1,p2;
 	double bin_width=(double)pic_hist.cols/4096;
 	double bin_unith=(double)pic_hist.rows/temp_max;
 
@@ -94,7 +95,7 @@ void init_target(double *hist1, double *m_wei,  cv::Mat& current)
 		p2.x = (i + 1)*bin_width;
 		p2.y = pic_hist.rows - hist1[i] * bin_unith;
 		//printf("%d,%d,%d,%d\n",p1.x,p1.y,p2.x,p2.y);
-		cv::rectangle(pic_hist,p1,p2,cvScalar(0,255,0),-1,8,0);
+		cv::rectangle(pic_hist,p1,p2,cv::Scalar(0,255,0),-1,8,0);
 	}
 	cv::imwrite("hist1.jpg",pic_hist);
 }
@@ -159,7 +160,7 @@ void MeanShift_Tracking(cv::Mat& current)
 			}
 		}
 		//画直方图
-		CvPoint p1,p2;
+		cv::Point p1,p2;
 		double bin_width=(double)pic_hist.cols/(4368);
 		double bin_unith=(double)pic_hist.rows/temp_max;
 
@@ -169,7 +170,7 @@ void MeanShift_Tracking(cv::Mat& current)
 			p1.y = pic_hist.rows;
 			p2.x = (i + 1)*bin_width;
 			p2.y = pic_hist.rows - hist2[i] * bin_unith;
-			cv::rectangle(pic_hist,p1,p2,cvScalar(0,255,0),-1,8,0);
+			cv::rectangle(pic_hist,p1,p2,cv::Scalar(0,255,0),-1,8,0);
 		}
 		cv::imwrite("hist2.jpg",pic_hist);
 
@@ -211,7 +212,7 @@ void MeanShift_Tracking(cv::Mat& current)
 	free(w);
 	free(q_temp);
 	//显示跟踪结果
-	cv::rectangle(current,cvPoint(drawing_box.x,drawing_box.y),cvPoint(drawing_box.x+drawing_box.width,drawing_box.y+drawing_box.height),CV_RGB(255,0,0),2);
+	cv::rectangle(current,cv::Point(drawing_box.x,drawing_box.y),cv::Point(drawing_box.x+drawing_box.width,drawing_box.y+drawing_box.height),CV_RGB(255,0,0),2);
 	cv::imshow("Meanshift",current);
 	//cvSaveImage("result.jpg",current);
 }
@@ -222,16 +223,16 @@ void onMouse( int event, int x, int y, int flags, void *param )
 	{
 		switch(event)
 		{
-		case CV_EVENT_LBUTTONDOWN:
+		case cv::EVENT_LBUTTONDOWN:
 			//the left up point of the rect
 			drawing_box.x=x;
 			drawing_box.y=y;
 			break;
-		case CV_EVENT_LBUTTONUP:
+		case cv::EVENT_LBUTTONUP:
 			//finish drawing the rect (use color green for finish)
 			drawing_box.width=x-drawing_box.x;
 			drawing_box.height=y-drawing_box.y;
-			cv::rectangle(current,cvPoint(drawing_box.x,drawing_box.y),cvPoint(drawing_box.x+drawing_box.width,drawing_box.y+drawing_box.height),CV_RGB(255,0,0),2);
+			cv::rectangle(current,cv::Point(drawing_box.x,drawing_box.y),cv::Point(drawing_box.x+drawing_box.width,drawing_box.y+drawing_box.height),CV_RGB(255,0,0),2);
 			cv::imshow("Meanshift",current);
 
 			//目标初始化
@@ -249,7 +250,8 @@ void onMouse( int event, int x, int y, int flags, void *param )
 
 int main(int argc, char* argv[])
 {
-	cvNamedWindow("Meanshift",1);
+	cv::namedWindow("Meanshift",cv::WINDOW_AUTOSIZE);
+
 	cv::VideoCapture capture(RESOURCE_DIR"/17/test.mkv");
 	capture.read(current);
 	char res[20];
@@ -273,7 +275,7 @@ int main(int argc, char* argv[])
 			cv::setMouseCallback("Meanshift", onMouse, 0);
 		}
 		while(pause){
-			if(cvWaitKey(0) == 'p')
+			if(cv::waitKey(0) == 'p')
 				pause = false;
 		}
 		cv::imshow("Meanshift",current);

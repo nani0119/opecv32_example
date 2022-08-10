@@ -3,11 +3,12 @@
 #include <opencv2/opencv.hpp>
 
 
+
 void drawSomething()
 {
     std::cout << std::endl <<__func__<<std::endl;
     cv::Mat img = cv::Mat::zeros(512, 512, CV_8UC3);
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     // draw circle
 
     cv::circle(img, cv::Point2f(100, 100), 100, cv::Scalar(255, 0 , 0), 1 , 8, 0);// shift: center>>0  radius>>0
@@ -114,7 +115,7 @@ void drawSomething()
 void drawCross()
 {
     cv::Mat img(512, 512, CV_8UC3, cv::Scalar(255,255,255));
-    cv::namedWindow("cross", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("cross", cv::WINDOW_AUTOSIZE);
     for(int y = 0; y < img.rows; y+=20)
     {
         for(int x = 0; x < img.cols; x+=20)

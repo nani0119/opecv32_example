@@ -304,7 +304,7 @@ void grabCut_example()
         std::cout << "img is empty" << std::endl;
         return;
     }
-    cv::namedWindow("grabCut", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("grabCut", cv::WINDOW_AUTOSIZE);
     cv::setMouseCallback("grabCut", myGrabCutMouseCallback, (void*)(&img));
     cv::imshow("grabCut", img);
     while(1)
@@ -345,7 +345,7 @@ void pyrMeanShiftFiltering_example()
         std::cout << "img is empty" << std::endl;
         return;
     }
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
     cv::createTrackbar("spatial window", "img", &g_spatialWindow, 255, MSTrackbarCB, (void*)(&img));
     cv::createTrackbar("color window", "img", &g_colorWindow, 255, MSTrackbarCB, (void*)(&img));

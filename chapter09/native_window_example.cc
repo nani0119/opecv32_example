@@ -117,7 +117,7 @@ void native_window_example()
 
     img = cv::Scalar::all(0);
 
-    cv::namedWindow("example", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("example", cv::WINDOW_AUTOSIZE);
     // 设置鼠标callback
     cv::setMouseCallback("example", myMouseCallback, (void*)&img);
     // 设置Trackbar

@@ -95,9 +95,9 @@ void logPolar_example()
     int logPolarPos = 40;
     int imgMove = 0;
     int imgRoateAngle = 0;
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("inv-logPolar", CV_WINDOW_AUTOSIZE);
-    cv::namedWindow("logPolar", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("inv-logPolar", cv::WINDOW_AUTOSIZE);
+    cv::namedWindow("logPolar", cv::WINDOW_AUTOSIZE);
     cv::createTrackbar("scale:", "logPolar", &logPolarPos, 100, onTraceBarCallback, (void*)&img);
     cv::createTrackbar("move:", "img", &imgMove, 200, onTraceBarImgMove, (void*)&img);
     cv::createTrackbar("angle:", "img", &imgRoateAngle, 360, onTraceBarImgRoateAngle, (void*)&img);

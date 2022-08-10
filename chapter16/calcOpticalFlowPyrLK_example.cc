@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+
 #include <iostream>
 #include <vector>
 
@@ -33,7 +34,7 @@ void calcOpticalFlowPyrLK_example()
     cv::goodFeaturesToTrack(oldImg, oldCorners, maxCorners, qualityLevel, minDistance, cv::noArray(), blockSize);
 
     cv::Size winSize(4, 4);
-    cv::cornerSubPix(oldImg, oldCorners, winSize, cv::Size(-1, -1), cv::TermCriteria(CV_TERMCRIT_EPS+CV_TERMCRIT_ITER, 40, 0.01));
+    cv::cornerSubPix(oldImg, oldCorners, winSize, cv::Size(-1, -1), cv::TermCriteria(cv::TermCriteria::EPS+cv::TermCriteria::COUNT, 40, 0.01));
 
     cv::Mat newImg;
     vector<vector<cv::Point2f>> tracker(maxCorners);

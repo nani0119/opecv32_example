@@ -11,28 +11,28 @@ void blur_example()
         std::cout << "img is empty" << std::endl;
         return;
     }
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
 
     cv::Mat simpleBlurDst;
-    cv::namedWindow("simple-blur", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("simple-blur", cv::WINDOW_AUTOSIZE);
     cv::blur(img, simpleBlurDst, cv::Size(5,5));
     cv::imshow("simple-blur", simpleBlurDst);
 
     cv::Mat boxFilterDst;
-    cv::namedWindow("box-blur", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("box-blur", cv::WINDOW_AUTOSIZE);
     cv::boxFilter(img, boxFilterDst, -1, cv::Size(5, 5));
     cv::imshow("box-blur", boxFilterDst);
 
     cv::Mat medianFilterDst;
-    cv::namedWindow("median-blur", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("median-blur", cv::WINDOW_AUTOSIZE);
     cv::medianBlur(img, medianFilterDst, 5);
     cv::imshow("median-blur", medianFilterDst);
 
 
     cv::Mat gaussianFilterDst;
     cv::GaussianBlur(img, gaussianFilterDst, cv::Size(5,5), 1., 1.);
-    cv::namedWindow("gaussian-blur", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("gaussian-blur", cv::WINDOW_AUTOSIZE);
     cv::imshow("gaussian-blur", gaussianFilterDst);
 
     cv::waitKey(0);
@@ -68,13 +68,13 @@ void bilateralFilter_example()
         std::cout << "img is empty" << std::endl;
         return;
     }
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
 
     cv::Mat bilaterFilterDst;
     cv::bilateralFilter(img, bilaterFilterDst, g_d, g_sigmaColor, g_sigmaSpace);
 
-    cv::namedWindow("bilaterFilter", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("bilaterFilter", cv::WINDOW_AUTOSIZE);
     cv::createTrackbar("d","bilaterFilter", &g_d, 50, on_Trackbar, (void*)&img);
     cv::createTrackbar("sigma-color","bilaterFilter", &g_sigmaColor, 100, on_Trackbar, (void*)&img);
     cv::createTrackbar("sigma-space","bilaterFilter", &g_sigmaSpace, 100, on_Trackbar, (void*)&img);

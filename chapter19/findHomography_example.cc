@@ -15,7 +15,7 @@ int main(int argc, char **argv)
         return -1;
     }
     // show images
-    namedWindow("input image", CV_WINDOW_AUTOSIZE);
+    namedWindow("input image", cv::WINDOW_AUTOSIZE);
     imshow("input image", src);
     Mat replaceImg = imread(RESOURCE_DIR"/19/kgirls.jpg");
     imshow("adv content", replaceImg);

@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 
+
 #define RESOURCE_DIR "../resource/"
 #define SHIFT_METHOD meanShift
 //#define SHIFT_METHOD CamShift
@@ -41,7 +42,7 @@ void MeanShift_Tracking(cv::Mat& current)
 
     cv::imshow("backprojection", backproject);
 
-    cv::TermCriteria term_crit = cv::TermCriteria(CV_TERMCRIT_EPS|CV_TERMCRIT_NUMBER, 10, 1);
+    cv::TermCriteria term_crit = cv::TermCriteria(cv::TermCriteria::EPS|cv::TermCriteria::COUNT, 10, 1);
     cv::SHIFT_METHOD(backproject, drawing_box, term_crit);
 }
 
@@ -130,7 +131,7 @@ int main(int argc, char const *argv[])
         return 1;
     }
     capture.read(img);
-    cv::namedWindow("MeanShift", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("MeanShift", cv::WINDOW_AUTOSIZE);
     // 设置鼠标callback
     //
 

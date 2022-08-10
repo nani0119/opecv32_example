@@ -1,3 +1,4 @@
+
 #include <opencv2/opencv.hpp>
 #define IMG_WIDTH   400
 #define IMG_HEIGHT  400
@@ -44,7 +45,8 @@ void myTrackbarCallback(int pos, void* param)
 
 void fill_color(cv::Mat& img, cv::Scalar color)
 {
-    for(cv::MatIterator_<cv::Vec3b> it = img.begin<cv::Vec3b>(); it != img.end<cv::Vec3b()>(); ++it)
+
+    for(cv::MatIterator_<cv::Vec3b> it = img.begin<cv::Vec3b>(); it != img.end<cv::Vec3b>(); ++it)
     {
         *it =  cv::Vec3b(color.val[0], color.val[1], color.val[2]);
     }

@@ -18,7 +18,7 @@ void PCA_example()
 
     grayImg.convertTo(grayImg, CV_32F, 1.0/255);
 
-    cv::namedWindow("gray-img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("gray-img", cv::WINDOW_AUTOSIZE);
     cv::imshow("gray-img", grayImg);
 
 
@@ -27,13 +27,13 @@ void PCA_example()
 
     cv::Mat vec = pca.project(grayImg);
 
-    cv::namedWindow("project-img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("project-img", cv::WINDOW_AUTOSIZE);
     cv::imshow("project-img", vec);
 
 
     cv::Mat src = pca.backProject(vec);
 
-    cv::namedWindow("backproject-img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("backproject-img", cv::WINDOW_AUTOSIZE);
     cv::imshow("backproject-img", src);
 
     cv::waitKey(0);

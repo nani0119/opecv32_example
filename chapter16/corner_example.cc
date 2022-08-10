@@ -1,4 +1,5 @@
 #include <opencv2/opencv.hpp>
+
 #include <iostream>
 #include <vector>
 
@@ -38,8 +39,8 @@ void corner_example()
 
     cv::Size winSize(4, 4);
     cv::Size zeroZone(-1, -1);
-    //cv::TermCriteria criteria = cv::TermCriteria(CV_TERMCRIT_EPS+CV_TERMCRIT_ITER, 40, 0.01);
-    cv::TermCriteria criteria = cv::TermCriteria(CV_TERMCRIT_EPS, 0, 0.01);
+    //cv::TermCriteria criteria = cv::TermCriteria(cv::TermCriteria::EPS+cv::TermCriteria::COUNT, 40, 0.01);
+    cv::TermCriteria criteria = cv::TermCriteria(cv::TermCriteria::EPS, 0, 0.01);
     cv::cornerSubPix(imgGray, corners, winSize, zeroZone, criteria);
 
     for(vector<cv::Point2f>::iterator it = corners.begin(); it != corners.end(); ++it)

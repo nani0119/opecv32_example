@@ -11,7 +11,7 @@ void filter2D_example()
         std::cout << "img is empty" << std::endl;
         return;
     }
-    cv::namedWindow("img", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("img", cv::WINDOW_AUTOSIZE);
     cv::imshow("img", img);
 
     cv::Mat kx, ky;
@@ -23,13 +23,13 @@ void filter2D_example()
     cv::Mat dst;
     cv::filter2D(img, dst, CV_32F, kernel);
 
-    cv::namedWindow("filter2D", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("filter2D", cv::WINDOW_AUTOSIZE);
     cv::imshow("filter2D", dst);
 
     cv::Mat sepDst;
     cv::sepFilter2D(img, sepDst, CV_32F, kx, ky);
 
-    cv::namedWindow("sepfilter2D", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("sepfilter2D", cv::WINDOW_AUTOSIZE);
     cv::imshow("sepfilter2D", sepDst);
 
     cv::Mat gaussianK = cv::getGaussianKernel(5, 1.);
@@ -39,7 +39,7 @@ void filter2D_example()
     cv::filter2D(img, gaussianDst, CV_32F, gaussianKernel);
 
     cv::normalize(gaussianDst, gaussianDst, 0., 1.,cv::NORM_MINMAX, CV_32F);
-    cv::namedWindow("gaussianfilter2D", CV_WINDOW_AUTOSIZE);
+    cv::namedWindow("gaussianfilter2D", cv::WINDOW_AUTOSIZE);
     cv::imshow("gaussianfilter2D", gaussianDst);
 
     cv::waitKey(0);

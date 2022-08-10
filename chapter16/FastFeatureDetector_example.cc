@@ -25,7 +25,8 @@ void FastFeatureDetector_example()
 
     int threshold = 30;
     bool nonmaxSuppression = true;
-    int type = cv::FastFeatureDetector::TYPE_9_16;
+    //int type = cv::FastFeatureDetector::TYPE_9_16;
+    cv::FastFeatureDetector::DetectorType type = cv::FastFeatureDetector::TYPE_9_16;
     cv::Ptr<cv::FastFeatureDetector> detector = cv::FastFeatureDetector::create(threshold, nonmaxSuppression, type);
 
     vector<cv::KeyPoint> keypoints;
